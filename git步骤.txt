@@ -1,0 +1,28 @@
+第一步：输入自己的用户名和邮箱（为注册GITHUB账号时的用户名和邮箱）
+   $ git config --global user.name "coliyin@163.com"
+   $ git config --global user.email "coliyin@163.com"
+第二步：设置SSH key
+首先检验本机是否生成密钥，执行命令：
+   $ cd ~/.ssh
+   $ ls
+如果存在id_rsa和id_rsa.pub文件说明秘钥已经存在，
+否则生成秘钥：
+   $ ssh-keygen -t rsa -C "jsheng969"
+然后将C盘用户下/.ssh/id_rsa.pub文件中的内容复制到github的SSH and GPG keys中
+第三步：在要上传的文件夹右键Git Bash Here
+第四步：初始化
+   $  git init
+第五步：将文件添加到本地仓库
+   $ git add .         //添加当前文件夹下的所有文件
+第六步：输入本次的提交说明，准备提交暂存区中的更改的已跟踪文件，单引号内为说明内容：
+   $ git commit -m "layout"  //引号中的内容为对该文件的描述
+第七步：在github上新建一个repository复制仓库地址
+第八步：$ git remote add origin https://github.com/CongliYin/CSS.git
+如果出现错误：fatal: remote origin already exists，则执行以下语句：
+   $ git remote rm origin
+再重新执行：
+   $ git remote add origin https://github.com/CongliYin/CSS.git
+即可成功。
+第九步：$ git push origin master
+如果出现错误failed to push som refs to…….，则执行以下语句，先把远程服务器github上面的文件拉先来，再push 上去。：
+   $ git pull origin master
